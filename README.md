@@ -75,15 +75,17 @@ Generan el código `<h1>Encabezados</h1>`, en HTML, o un párrafo con estilo Tí
 
 Los encabezados pueden incluir un identificador añadiendo `{#nombreId}` al final del encabezado. De esta forma se pueden hacer [referencias cruzadas](#refCruz). También pueden tener otros atributos como `{.unnumbered}` o `{-}`, que hace que esa Encabezado no esté numerada.
 
-### Enlaces y referencias cruzadas {#refCruz}
+## Enlaces y referencias cruzadas {#refCruz}
 
 Hay varias formas de añadir enlaces:
  
 - __Enlaces inline__: El texto del enlace y a dónde nos lleva está todo junto. El texto o título del enlace se pone entre `[]` y la dirección del enlace se pone a continuación entre `()`. En la dirección se puede poner el identificador de un encabezado para hacer una _referencia cruzada_. Por ejemplo, [este enlace a la página web de Google](http://www.google.es) se ha creado escribiendo:
 
->>`[este enlace a la página web de Google](http://www.google.es)`.
+```
+[este enlace a la página web de Google](http://www.google.es)
+```
 
-    Si hemos instalado `Markdown Editing` en Sublime entonces podemos crear rápidamente este tipo enlace escribiendo `mdl` y pulsando la tecla `Tab`.
+>> Si hemos instalado `Markdown Editing` en Sublime entonces podemos crear rápidamente este tipo enlace escribiendo `mdl` y pulsando la tecla `Tab`.
 
 
 -  Si no queremos poner texto de un enlace entonces podemos poner una dirección entre `<>`. Por ejemplo, este enlace <http://google.com> se ha escrito como `<http://google.com>`.
@@ -98,7 +100,7 @@ Hay varias formas de añadir enlaces:
 [PanDoc]: http://johnmacfarlane.net/pandoc/
 
 
-### Imágenes
+## Imágenes
 
 Son links precedidos del caracter `!`. El texto entre `[]` hace las veces de pie de figura. Si el enlace termina en `\` entonces significa que la imagen es inline dentro del párrafo en la que está escrita.
 
@@ -109,7 +111,7 @@ Por ejemplo `![Pie de figura: Imagen](./img/imagen.png)` hace que salga lo sigui
 > Si hemos instalado `Markdown Editing` en Sublime entonces podemos crear rápidamente este tipo enlace escribiendo `mdi` y pulsando la tecla `Tab`.
 
 
-### Enumeraciones y viñetas
+## Enumeraciones y viñetas
 
 Una lista con balas consiste en una serie de párrafos que empiezan con `*`. Por ejemplo, el texto:
 
@@ -189,7 +191,7 @@ Palabra 2 (con **formato**)
 
 ~   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, ut, recusandae, quam, aliquid dolores sapiente eveniet dolorem ipsam voluptatibus tempore doloribus voluptatum? Fugit, repudiandae ad mollitia amet temporibus animi quo.
 
-### Citas y código
+## Citas y código
 
 Cualquier párrafo que comienza con el caracter `>` se considera un bloque de cita (o 'quote'). Los bloques de citas se pueden anidar unos dentro de otros separando el siguiente bloque con un espacio en blanco y el símbolo `>`.
 
@@ -209,9 +211,11 @@ if (a > 3) {
 }
 ~~~~~~~
 
-Al igual que a las Encabezados, podemos añadir atributos a los bloques de código (como identificadores, nombres de clase, lenguaje, etc.) poniéndolos entre `{ }` tras la línea de virgulillas o tildes.
+Detrás de la primera línea de virgulillas o tildes podemos añadir el nombre del lenguaje del código para que lo coloree de acuerdo a la sintaxis de ese lenguaje. Alternativamente, podemos poner un identificador para crear una referencia cruzada al código escribiéndolo entre `{ }` tras la línea de virgulillas o tildes.
 
-### Notas al pie
+> Si hemos instalado `Markdown Editing` en Sublime entonces podemos crear rápidamente este tipo enlace escribiendo `mdc` y pulsando la tecla `Tab`.
+
+## Notas al pie
 
 Existen dos tipos de formato:
 
@@ -223,7 +227,7 @@ Existen dos tipos de formato:
 
 - Formato largo: Se utiliza cuando la nota ocupa varios párrafos. En este caso el enlace se caracteriza por poner un identificador: `[^identificador]`. Al igual que antes, usaremos las referencias cruzadas para poner el contenido de la nota.
 
-### Algunos metadatos y caracteres de escape
+## Algunos metadatos y caracteres de escape
 
 Los documentos pueden contener ciertos metadatos que ayudan a algunos conversores a añadir información adicional. Por ejemplo, el bloque de título se define de la siguiente manera:
 
@@ -233,11 +237,24 @@ Los documentos pueden contener ciertos metadatos que ayudan a algunos conversore
 
 Si lo convertimos a Beamer, por ejemplo, veremos que se convierte en la primera diapositiva de presentación. En HTML se convierte en el título de la página.
 
+También podemos poner metadatos en formato YAML, preferiblemente al principio del documento. Se escribe entre `---`, tal y como se puede ver en este ejemplo:
+
+---
+title: Sublime y Markdown
+section: 2
+next: 3-markdown
+prev: 1-intro
+---
+
+Los metadatos que aparecen pueden ser utilizados por pandoc para producir cierta información en los documentos generados en la conversión. Por ejemplo, los metadatos anteriores pueden ser usados (con la plantilla adecuada) para crear un HTML con el título indicado en `title`, un encabezado con el número de la sección (`section`) y unos enlaces de navegación que nos llevan al documento anterior (`prev`) y siguiente (`next`).
+
 Los símbolos de escape llevan delante el símbolo `\`. Se pueden "escapar" los siguientes símbolos:
 
 ```
 \`*_{}[]()>#+-.!
 ```
+
+
 
 
 
