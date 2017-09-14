@@ -239,12 +239,14 @@ Si lo convertimos a Beamer, por ejemplo, veremos que se convierte en la primera 
 
 También podemos poner metadatos en formato YAML, preferiblemente al principio del documento. Se escribe entre `---`, tal y como se puede ver en este ejemplo:
 
+```
 ---
 title: Sublime y Markdown
 section: 2
 next: 3-markdown
 prev: 1-intro
 ---
+```
 
 Los metadatos que aparecen pueden ser utilizados por pandoc para producir cierta información en los documentos generados en la conversión. Por ejemplo, los metadatos anteriores pueden ser usados (con la plantilla adecuada) para crear un HTML con el título indicado en `title`, un encabezado con el número de la sección (`section`) y unos enlaces de navegación que nos llevan al documento anterior (`prev`) y siguiente (`next`).
 
@@ -253,6 +255,10 @@ Los símbolos de escape llevan delante el símbolo `\`. Se pueden "escapar" los 
 ```
 \`*_{}[]()>#+-.!
 ```
+
+## Tablas
+
+Markdown permite también crear tablas de manera sencilla. Como generalmente no las uso [dejo aquí el enlace con la sintaxis detallada de las tablas](http://pandoc.org/MANUAL.html#tables). 
 
 
 
