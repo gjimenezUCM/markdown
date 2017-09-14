@@ -21,7 +21,7 @@ A veces la instalación de `Package Control` no funciona a la primera. Es probab
 - En Windows, Pandoc se instala en `C:\\Users\\MIUSUARIO\\AppData\\Local\\Pandoc` o en `c:\\Archivos de programa (x86)\\Pandoc`. 
 - En MacOSX, Pandoc se instala un enlace simbólico en `/usr/local/bin`. Si seguimos el enlace veremos que el original queda instalado en `/usr/local/Cellar/pandoc/<VERSION>/bin`
 
->> Nota: las carpeta `AppData` y `.pandoc` son directorios ocultos del sistema.
+> Nota: las carpeta `AppData` y `.pandoc` son directorios ocultos del sistema.
 
 ## Pandown
 
@@ -85,7 +85,7 @@ Hay varias formas de añadir enlaces:
 [este enlace a la página web de Google](http://www.google.es)
 ```
 
->> Si hemos instalado `Markdown Editing` en Sublime entonces podemos crear rápidamente este tipo enlace escribiendo `mdl` y pulsando la tecla `Tab`.
+> Si hemos instalado `Markdown Editing` en Sublime entonces podemos crear rápidamente este tipo enlace escribiendo `mdl` y pulsando la tecla `Tab`.
 
 
 -  Si no queremos poner texto de un enlace entonces podemos poner una dirección entre `<>`. Por ejemplo, este enlace <http://google.com> se ha escrito como `<http://google.com>`.
