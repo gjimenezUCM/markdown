@@ -2,7 +2,6 @@
 
 En este documento se describen las instrucciones para la creación de documentos usando Markdown, Sublime Text y Pandoc.
 
-* auto-gen TOC:
 {:toc}
 
 # Instalación
