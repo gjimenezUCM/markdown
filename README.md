@@ -6,11 +6,28 @@ En este documento se describen las instrucciones para la creación de documentos
 
 ## Sublime Text
 
-Mi herramienta preferida para trabajar con Markdown es [Sublime Text](http://www.sublimetext.com). Tradicionalmente he usado la versión 2 pero actualmente ya está disponible la versión 3 (que ha estado en Beta durante muchos años). Una vez instalada es recomendable instalar varios paquetes que nos ayudarán a preparar el entorno de trabajo:
+Mi herramienta preferida para trabajar con Markdown es [Sublime Text](http://www.sublimetext.com). Tradicionalmente he usado la versión 2 pero actualmente ya está disponible la versión 3 (que ha estado en Beta durante muchos años).
 
-- Instalar `Package Control` en Sublime. Sirve para poder instalar otros plugins de Sublime más adelante. [En la versión 2 este paquete se instala a mano siguiendo las instrucciones que aparecen aquí.](https://packagecontrol.io/installation). En la versión 3 existe ya una opción para instalar este paquete desde el propio editor.
-- Instalar el paquete `Markdown Editing` a través del _Package Control_:
+### Temas y paquetes
+
+Una vez instalada es recomendable instalar varios paquetes que nos ayudarán a preparar el entorno de trabajo. Aunque no sean todos para Markdown, los paquetes que tengo instalados son:
+
+- `Package Control`. Sirve para poder instalar otros plugins de Sublime más adelante. [En la versión 2 este paquete se instala a mano siguiendo las instrucciones que aparecen aquí.](https://packagecontrol.io/installation). En la versión 3 existe ya una opción para instalar Package Control desde el propio editor (`Shift+Cmd+P` (Mac) o `Shift+Ctrl+P` (Windows) >> Install)
+- `Markdown Editing` a través del _Package Control_:
     + `Shift+Cmd+P` (Mac) o `Shift+Ctrl+P` (Windows) >> Package Control - Install package >> Markdown editing
+- `AdvancedNewFile`
+- `Alignment`
+- `Clickable URLs`
+- `Docblockr`
+- `Emmet`
+- `Gist`
+- `HTML-CSS-JS Prettify`
+- `JSHint`
+- `Terminal`
+- `Sublime Git`
+- `Sidebar Enhancement`
+- `Pretty JSON`
+- `Pandown`: Se explica en detalle más adelante ya que es fundamental para la exportación de Markdown.
 
 A veces la instalación de `Package Control` no funciona a la primera. Es probable que haya que instalar/desintalar alguna vez hasta que funcione correctamente.
 
@@ -260,7 +277,7 @@ Los símbolos de escape llevan delante el símbolo `\`. Se pueden "escapar" los 
 
 Markdown permite también crear tablas de manera sencilla. Como generalmente no las uso [dejo aquí el enlace con la sintaxis detallada de las tablas](http://pandoc.org/MANUAL.html#tables). 
 
-
+# Exportación con Pandown
 
 
 
