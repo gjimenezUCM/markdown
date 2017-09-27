@@ -93,9 +93,9 @@ y
 
 Generan el código `<h1>Encabezados</h1>`, en HTML, o un párrafo con estilo Título 1, en Word (dependiendo de a qué formato los convirtamos). 
 
-Los encabezados pueden incluir un identificador añadiendo `{#nombreId}` al final del encabezado. De esta forma se pueden hacer [referencias cruzadas](#refCruz). También pueden tener otros atributos como `{.unnumbered}` o `{-}`, que hace que esa Encabezado no esté numerada.
+Los encabezados pueden incluir un identificador añadiendo `{#nombreId}` al final del encabezado. De esta forma se pueden hacer [referencias cruzadas](#enlaces-y-referencias-cruzadas). También pueden tener otros atributos como `{.unnumbered}` o `{-}`, que hace que esa Encabezado no esté numerada.
 
-## Enlaces y referencias cruzadas {#refCruz}
+## Enlaces y referencias cruzadas 
 
 Hay varias formas de añadir enlaces:
  
