@@ -244,7 +244,7 @@ Existen dos tipos de formato:
 
 - Formato largo: Se utiliza cuando la nota ocupa varios párrafos. En este caso el enlace se caracteriza por poner un identificador: `[^identificador]`. Al igual que antes, usaremos las referencias cruzadas para poner el contenido de la nota.
 
-## Algunos metadatos y caracteres de escape{#metadatos}
+## Algunos metadatos y caracteres de escape {#metadatos}
 
 Los documentos pueden contener ciertos metadatos que ayudan a algunos conversores a añadir información adicional. Por ejemplo, el bloque de título se define de la siguiente manera:
 
