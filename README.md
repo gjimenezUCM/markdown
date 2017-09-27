@@ -244,7 +244,7 @@ Existen dos tipos de formato:
 
 - Formato largo: Se utiliza cuando la nota ocupa varios párrafos. En este caso el enlace se caracteriza por poner un identificador: `[^identificador]`. Al igual que antes, usaremos las referencias cruzadas para poner el contenido de la nota.
 
-## Algunos metadatos y caracteres de escape
+## Algunos metadatos y caracteres de escape{#metadatos}
 
 Los documentos pueden contener ciertos metadatos que ayudan a algunos conversores a añadir información adicional. Por ejemplo, el bloque de título se define de la siguiente manera:
 
@@ -278,6 +278,16 @@ Los símbolos de escape llevan delante el símbolo `\`. Se pueden "escapar" los 
 Markdown permite también crear tablas de manera sencilla. Como generalmente no las uso [dejo aquí el enlace con la sintaxis detallada de las tablas](http://pandoc.org/MANUAL.html#tables). 
 
 # Exportación con Pandown
+
+Pandoc es [una aplicación de consola](https://pandoc.org/MANUAL.html) que permite, entre otros, convertir un documento en Markdown a otros tipos de documentos (como HTML, LaTeX, PDF, DOCX...). Sin embargo, una forma más cómoda de usarlo es mediante Pandown, el plugin de Sublime.
+
+Podemos probar que la exportación con este plugin funciona abriendo un documento en Markdown y realizando lo siguiente:
+
+> `Shift+Cmd+P` (Mac) o `Shift+Ctrl+P` (Windows) >> Build: Pandown HTML 5
+
+Una vez ejecutado esto, en el directorio en el que se encuentra el documento en Markdown debería de aparecer un documento en HTML equivalente. 
+
+Como se habrá podido ver al lanzar la instrucción de `build`, existen una gran cantidad de tipos de documentos a los que se puede convertir un documento en Markdown. El formato de cada uno de los tipos de documentos se define a partir de plantillas. Para tener un cierto control sobre este formato las plantillas contienen variables cuyos valores pueden ser asignados desde [los bloques de metadatos en formato YAML](#metadatos)
 
 
 
