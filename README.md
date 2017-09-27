@@ -244,7 +244,7 @@ Existen dos tipos de formato:
 
 - Formato largo: Se utiliza cuando la nota ocupa varios párrafos. En este caso el enlace se caracteriza por poner un identificador: `[^identificador]`. Al igual que antes, usaremos las referencias cruzadas para poner el contenido de la nota.
 
-## Algunos metadatos y caracteres de escape {#metadatos}
+## Algunos metadatos y caracteres de escape
 
 Los documentos pueden contener ciertos metadatos que ayudan a algunos conversores a añadir información adicional. Por ejemplo, el bloque de título se define de la siguiente manera:
 
@@ -287,7 +287,7 @@ Podemos probar que la exportación con este plugin funciona abriendo un document
 
 Una vez ejecutado esto, en el directorio en el que se encuentra el documento en Markdown debería de aparecer un documento en HTML equivalente. 
 
-Como se habrá podido ver al lanzar la instrucción de `build`, existen una gran cantidad de tipos de documentos a los que se puede convertir un documento en Markdown. El formato de cada uno de los tipos de documentos se define a partir de plantillas. Para tener un cierto control sobre este formato las plantillas contienen variables cuyos valores pueden ser asignados desde [los bloques de metadatos en formato YAML](#metadatos)
+Como se habrá podido ver al lanzar la instrucción de `build`, existen una gran cantidad de tipos de documentos a los que se puede convertir un documento en Markdown. El formato de cada uno de los tipos de documentos se define a partir de plantillas. Para tener un cierto control sobre este formato las plantillas contienen variables cuyos valores pueden ser asignados desde [los bloques de metadatos en formato YAML](#algunos-metadatos-y-caracteres-de-escape)
 
 
 
