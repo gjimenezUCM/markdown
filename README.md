@@ -37,8 +37,9 @@ A veces la instalación de `Package Control` no funciona a la primera. Es probab
 
 - En Windows, Pandoc se instala en `C:\\Users\\MIUSUARIO\\AppData\\Local\\Pandoc` o en `c:\\Archivos de programa (x86)\\Pandoc`. 
 - En MacOSX, Pandoc se instala un enlace simbólico en `/usr/local/bin`. Si seguimos el enlace veremos que el original queda instalado en `/usr/local/Cellar/pandoc/<VERSION>/bin`
+- En MacOSX también se puede instalar con Homebrew `brew install pandoc`
 
-> Nota: las carpeta `AppData` y `.pandoc` son directorios ocultos del sistema.
+> Nota: las carpeta `AppData` y `.pandoc` son directorios ocultos del sistema Windows y Mac, respectivamente.
 
 ## Pandown
 
@@ -65,9 +66,11 @@ Con `Shift+Cmd+P` (Mac) o `Shift+Ctrl+P` (Windows) podemos compilar nuestro docu
 
 Para saber más acerca de cómo crear transparencias usando Pandoc podemos [leer la siguiente sección del manual  de Pandoc](http://johnmacfarlane.net/pandoc/README.html#producing-slide-shows-with-pandoc)
 
-# Principal sintaxis de Markdown
+# Sintaxis básica de Markdown
 
-Markdown es un lenguaje mínimo de marcas. A continuación vamos a detallar las principales marcas usadas de entre [todas que ofrece el Markdown que Pandoc es capaz de interpretar](http://pandoc.org/MANUAL.html#pandocs-markdown).
+Markdown es un lenguaje mínimo de marcas. Existen variaciones de esta sintaxis aunque, salvo por pequeñas sutilezas, todas terminan siendo similares. Por ejemplo, [GitHub Flavored Markdow (GFM)](https://github.github.com/gfm/) es la sintaxis usada en GitHub y que permite que podamos ver renderizado en HTML cualquier documento en Markdown (extensión md) que subamos a GitHub.
+
+A continuación vamos a detallar las principales marcas que solemos utilizar de entre [todas que ofrece el Markdown que Pandoc es capaz de interpretar](http://pandoc.org/MANUAL.html#pandocs-markdown).
 
 ## Párrafos
 
@@ -287,7 +290,43 @@ Podemos probar que la exportación con este plugin funciona abriendo un document
 
 Una vez ejecutado esto, en el directorio en el que se encuentra el documento en Markdown debería de aparecer un documento en HTML equivalente. 
 
-Como se habrá podido ver al lanzar la instrucción de `build`, existen una gran cantidad de tipos de documentos a los que se puede convertir un documento en Markdown. El formato de cada uno de los tipos de documentos se define a partir de plantillas. Para tener un cierto control sobre este formato las plantillas contienen variables cuyos valores pueden ser asignados desde [los bloques de metadatos en formato YAML](#algunos-metadatos-y-caracteres-de-escape)
+Como se habrá podido ver al lanzar la instrucción de `build`, existen una gran cantidad de tipos de documentos a los que se puede convertir un documento en Markdown. El formato de cada uno de los tipos de documentos se define a partir de plantillas. Para tener un cierto control sobre este formato las plantillas contienen variables cuyos valores pueden ser asignados desde [los bloques de metadatos en formato YAML](#algunos-metadatos-y-caracteres-de-escape) o desde los archivos de configuración de proyectos de Pandown, que se verán a continuación. 
+
+Podemos tener múltiples plantillas para el mismo tipo de documentos. Tan solo hay que saber cuál se usará en cada momento. Utilizando Pandown desde Sublime Text, el orden es el siguiente:
+
+1. Si hay un **archivo de configuración de proyecto**, entonces se usarán las plantillas que se indiquen en este archivo.
+2. Si no hay archivo de configuración de proyecto o dicho archivo no indica que se usen otras plantillas, entonces se usarán las **plantillas del usuario**de Pandoc.
+3. Si no existen las plantillas de usuario entonces se utilizarán las **plantillas globales** de Pandoc.
+
+Vamos a ver un poco en detalle dónde están cada una de estas plantillas y archivos.
+
+## Plantillas globales
+
+Las plantillas globales de Pandoc están en distinto lugar dependiendo del sistema operativo:
+
+- **Windows**: En las últimas versiones las plantillas están incrustadas en el ejecutable. Sin embargo, se puede acceder a ellas con el siguiente comando:
+
+```
+pandoc -D *FORMATO*
+```
+
+- **Mac**: Si se ha instalado con Homebrew, las plantillas están en:
+
+```
+/usr/local/Cellar/pandoc/1.19.2.1/share/x86_64-osx-ghc-8.0.2/pandoc-1.19.2.1/data/templates
+```
+
+## Plantillas del usuario
+
+Por defecto, no existen plantillas del usuario por lo que es necesario crearlas. Lo más sencillos es utilizar [las plantillas del repositorio de GitHub de John MacFarlane](https://github.com/jgm/pandoc-templates). Las plantillas de usuario hay que guardarlas en:
+
+- **Windows** `c:\Users\USERNAME\AppData\Roaming\Pandoc\templates`
+- **Mac** `~/.pandoc/templates`
+
+Hay mucha gente que [contribuye compartiendo sus propias plantillas personalizadas](https://github.com/jgm/pandoc/wiki/User-contributed-templates). Por ejemplo, [hay una bastante interesante para hacer la tesis en Markdown](https://github.com/chiakaivalya/thesis-markdown-pandoc), aunque la conversión de formato no se puede hacer desde Pandown sino que hay que ejecutarla desde consola con Pandoc (hay un ejemplo completo en el repositorio).
+
+
+
 
 
 
