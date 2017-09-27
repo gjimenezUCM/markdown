@@ -325,6 +325,45 @@ Por defecto, no existen plantillas del usuario por lo que es necesario crearlas.
 
 Hay mucha gente que [contribuye compartiendo sus propias plantillas personalizadas](https://github.com/jgm/pandoc/wiki/User-contributed-templates). Por ejemplo, [hay una bastante interesante para hacer la tesis en Markdown](https://github.com/chiakaivalya/thesis-markdown-pandoc), aunque la conversión de formato no se puede hacer desde Pandown sino que hay que ejecutarla desde consola con Pandoc (hay un ejemplo completo en el repositorio).
 
+## Archivo de configuración de proyecto
+
+Si estamos usando Pandown y Sublime Text podemos configurar la forma en la que se ejecuta pandoc gracias al archivo de configuración de proyecto, un archivo en formato JSON en el que podemos establecer cómo queremos que se ejecute pandoc. Generalmente solemos tener un único archivo de configuración de proyecto para un conjunto de archivos en Markdown. Sin embargo, podemos utilizar múltiples archivos que se ejecutarán dependiendo de cómo hayamos abierto el proyecto en Sublime Text y en qué directorio está el archivo de configuración con respecto al archivo en Markdown que queremos convertir. A modo de ejemplo, podemos tener organizado un curso completo con distintos archivos Markdown para transparencias y apuntes y que los primeros se conviertan a transparencias con Slidy mientras que los segundos se conviertan a PDF. La organización podría ser algo similar a esto:
+
+```
+raiz
+ |____ imagenes (comunes a los apuntes y presentaciones)
+ |____ apuntes
+ |      |____ tema01.md
+ |      ...
+ |      |____ pandoc-config.json (convierte a PDF)
+ |____ slides
+ |      |____ tema01.md
+ |      ...
+ |      |____ pandoc-config.json (convierte a Slidy)
+ |____ ejercicios
+ |      |____ ejTema01.md
+ |      ...
+ |      
+ |____ pandownTemplates
+        |____ slidy (libreria local y CSS personalizadas)
+        |____ mathjax (librería local para renderizar formulas LaTeX en HTML)
+        |____ templates
+               |____ default.slidy
+               |____ default.latex
+               |____ default.opendocument
+ |____ pandoc-config.json (Genérico para todo el proyecto)
+```
+
+Para indicar qué plantillas usar se puede modificar el archivo de configuración de proyecto siguiendo una de estas dos opciones:
+
+- Buscar el campo `template` y poner como valor la ruta al archivo que se va a usar como plantilla. Esto hace que pandoc ignorará el tipo de documento y que siempre hará la conversión con la misma plantilla. A modo de ejemplo, en la organización de ficheros anterior, en pandoc-config.json del directorio de `apuntes` puede tener el valor `../pandownTemplates/templates/default.latex`, de modo que siempre genere un PDF, mientras que el del directorio de `slides` puede tener el valor `../pandownTemplates/templates/default.slidy`.
+- Buscar el campo `data-dir` y poner como valor la ruta al directorio de plantillas para este proyecto. En el propio archivo de configuración se explica cuál es la estructura que ha de tener dicho directorio . Si se usa una ruta relativa, esta ha de ser con respecto al archivo Markdown que se quiere convertir. A modo de ejemplo, en la organización de ficheros anterior, podríamos poner la ruta `../PandownTemplates` como valor del campo `data-dir` en el archivo de configuración que hay en el directorio `raiz`. Con esta alternativa podríamos tener un único archivo de configuración en el raíz que indica dónde están todas las plantillas con los distintos formatos que nos interesan.
+
+Hay que tener en cuenta que abrir un archivo individualmente en Sublime o abrir un directorio completo afecta al comportamiento de búsqueda de los archivos de configuración de proyecto en Pandown. Pandown busca primero el archivo de configuración en el directorio de trabajo del archivo que queremos convertir, para luego subir por la jerarquía de directorios _que tengamos abierta en Sublime_. Si no lo encuentra entonces utilizará pandoc normalmente, de modo que usará las plantillas de usuario o las globales, según corresponda. 
+
+Por ejemplo, supongamos que abrimos en Sublime Text el directorio `raiz`. Si abro en el editor el archivo del `slides/tema01.md` y ejecuto Pandown siempre va a generar un archivo que usa la plantilla `default.slidy` (aunque la extensión del archivo sea otra distinta) ya que el directorio `slides` tiene su propio archivo de configuración. Por otro lado, si abro en el editor el archivo `ejercicios/ejTema01.md` y ejecuto Pandown para convertir a PDF, Slidy u OpenDocument, usará las plantillas que hay en `pandownTemplates`, ya que usará el archivo de configuración que hay en el raíz. Para cualquier otro formato usará las plantillas de usuario o globales.
+
+Sin embargo, si en Sublime abrimos el directorio `ejercicios` (en lugar del `raiz`) y ejecutamos Pandown para convertir a PDF, Slidy u OpenDocument, en este caso se utilizarán las plantillas de usuario o las globales, ya Pandown no encontrará ningún fichero de configuración de proyecto.
 
 
 
