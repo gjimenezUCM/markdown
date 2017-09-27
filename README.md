@@ -345,12 +345,12 @@ raiz
  |      ...
  |      
  |____ pandownTemplates
-        |____ slidy (libreria local y CSS personalizadas)
-        |____ mathjax (librería local para renderizar formulas LaTeX en HTML)
-        |____ templates
-               |____ default.slidy
-               |____ default.latex
-               |____ default.opendocument
+ |      |____ slidy (libreria local y CSS personalizadas)
+ |      |____ mathjax (librería local para renderizar formulas LaTeX en HTML)
+ |      |____ templates
+ |             |____ default.slidy
+ |             |____ default.latex
+ |             |____ default.opendocument
  |____ pandoc-config.json (Genérico para todo el proyecto)
 ```
 
