@@ -50,14 +50,11 @@ El paquete `Pandown` es el responsable de hacer la conversión de markdown a otr
 En caso de instalarlo en Windows es necesario configurar dónde se encuentra Pandoc (en Linux y Mac suele quedar correctamente configurado por defecto):
 
 - Preferences >> Package Settings >> Pandown >> Settings - Default
-- En el archivo que se abre sustituir el valor de `install_path` (por defecto es `/usr/local/bin`) por la ruta en la que se ha instalado Pandoc (recordar que hay que poner dobles barras `\\` en la ruta)
-- Si no nos deja editar el archivo (ocurre con Sublime Text 3), entonces tendremos que editar el archivo Preferences >> Package Settings >> Pandown >> Settings - User y añadir lo siguiente:
-
-```
-{
-    "install_path": "<RUTA A PANDOC>"
-}
-```
+- En el archivo de preferencias globales que se abre, sustituir el valor de `install_path` (por defecto es `/usr/local/bin`) por la ruta en la que se ha instalado Pandoc (recordar que hay que poner dobles barras `\\` en la ruta)
+- Si no nos deja editar el archivo de preferencias globales (ocurre con Sublime Text 3), entonces tendremos que:
+    - Abrir el archivo de preferencias del usuario (Preferences >> Package Settings >> Pandown >> Settings - User)
+    - Copiar y pegar el de preferencias globales (el que se vio en el paso anterior)
+    - Modificar el valor de (por defecto es `/usr/local/bin`) por la ruta en la que se ha instalado Pandoc (recordar que hay que poner dobles barras `\\` en la ruta)
 
 Una vez que está todo instalado ya podemos escribir el texto en Markdown. En particular se puede usar la versión de Markdown que utiliza Pandoc y que explicaremos más en detalle en la [siguiente sección](#mdpandoc).
 
@@ -364,8 +361,6 @@ Hay que tener en cuenta que abrir un archivo individualmente en Sublime o abrir 
 Por ejemplo, supongamos que abrimos en Sublime Text el directorio `raiz`. Si abro en el editor el archivo del `slides/tema01.md` y ejecuto Pandown siempre va a generar un archivo que usa la plantilla `default.slidy` (aunque la extensión del archivo sea otra distinta) ya que el directorio `slides` tiene su propio archivo de configuración. Por otro lado, si abro en el editor el archivo `ejercicios/ejTema01.md` y ejecuto Pandown para convertir a PDF, Slidy u OpenDocument, usará las plantillas que hay en `pandownTemplates`, ya que usará el archivo de configuración que hay en el raíz. Para cualquier otro formato usará las plantillas de usuario o globales.
 
 Sin embargo, si en Sublime abrimos el directorio `ejercicios` (en lugar del `raiz`) y ejecutamos Pandown para convertir a PDF, Slidy u OpenDocument, en este caso se utilizarán las plantillas de usuario o las globales, ya Pandown no encontrará ningún fichero de configuración de proyecto.
-
-
 
 
 
