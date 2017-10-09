@@ -47,7 +47,7 @@ El paquete `Pandown` es el responsable de hacer la conversión de markdown a otr
 
 - `Shift+Cmd+P` (Mac) o `Shift+Ctrl+P` (Windows) >> Package Control - Install package >> Pandown
 
-En caso de instalarlo en Windows es necesario configurar dónde se encuentra Pandoc (en Linux y Mac queda correctamente configurado por defecto):
+En caso de instalarlo en Windows es necesario configurar dónde se encuentra Pandoc (en Linux y Mac suele quedar correctamente configurado por defecto):
 
 - Preferences >> Package Settings >> Pandown >> Settings - Default
 - En el archivo que se abre sustituir el valor de `install_path` (por defecto es `/usr/local/bin`) por la ruta en la que se ha instalado Pandoc (recordar que hay que poner dobles barras `\\` en la ruta)
