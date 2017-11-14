@@ -20,7 +20,7 @@ Una vez instalada es recomendable instalar varios paquetes que nos ayudarán a p
 - `Clickable URLs`
 - `Docblockr`
 - `Emmet`
-- `Gist`
+- `LiveReload`
 - `HTML-CSS-JS Prettify`
 - `JSHint`
 - `Terminal`
@@ -361,6 +361,15 @@ Hay que tener en cuenta que abrir un archivo individualmente en Sublime o abrir 
 Por ejemplo, supongamos que abrimos en Sublime Text el directorio `raiz`. Si abro en el editor el archivo del `slides/tema01.md` y ejecuto Pandown siempre va a generar un archivo que usa la plantilla `default.slidy` (aunque la extensión del archivo sea otra distinta) ya que el directorio `slides` tiene su propio archivo de configuración. Por otro lado, si abro en el editor el archivo `ejercicios/ejTema01.md` y ejecuto Pandown para convertir a PDF, Slidy u OpenDocument, usará las plantillas que hay en `pandownTemplates`, ya que usará el archivo de configuración que hay en el raíz. Para cualquier otro formato usará las plantillas de usuario o globales.
 
 Sin embargo, si en Sublime abrimos el directorio `ejercicios` (en lugar del `raiz`) y ejecutamos Pandown para convertir a PDF, Slidy u OpenDocument, en este caso se utilizarán las plantillas de usuario o las globales, ya Pandown no encontrará ningún fichero de configuración de proyecto.
+
+### Algunos parámetros de los archivos de configuración
+
+A continuación se detallan algunos de los parámetros que se pueden establecer desde los archivos de configuración. Hay que tener en cuenta, además, que se pueden añadir parámetros nuevos que no aparecen aquí pero sí en la documentación de pandoc. Por ejemplo, el parámetro `--filter` en Pandoc sirve para ejecutar filtros que se aplican durante la transformación de formatos. Sin embargo, este parámetro no aparece en el archivo de configuración. Podemos añadir en el objeto `"command_arguments"` un campo `"filter"` con la lista de los archivos de filtros que queremos que se ejecuten durante la conversión.
+
+Estos son algunos de los parámetros que suelo utilizar:
+
+- `data-dir`: Como se ha comentado en las secciones anteriores, este parámetro sirve para indicar dónde buscar las plantillas para realizar las conversiones de formato. Hay que tener en cuenta que la estructura del directorio es fija (se puede ver en la documentación del parámetro en el archivo de configuración) y que la ruta a este directorio, si es relativa, ha de serlo con respecto al archivo origen de la conversión (que es el que estará abierto en el editor Sublime Text).
+- `template`: Ignora el tipo de conversión y ejecuta la conversión siempre utilizando la misma plantilla. Al igual que en el anterior, la ruta a este directorio, si es relativa, ha de serlo con respecto al archivo origen de la conversión (que es el que estará abierto en el editor Sublime Text).
 
 
 
