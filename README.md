@@ -299,18 +299,10 @@ Vamos a ver un poco en detalle dónde están cada una de estas plantillas y arch
 
 ## Plantillas globales
 
-Las plantillas globales de Pandoc están en distinto lugar dependiendo del sistema operativo:
-
-- **Windows**: En las últimas versiones las plantillas están incrustadas en el ejecutable. Sin embargo, se puede acceder a ellas con el siguiente comando:
+En las últimas versiones las plantillas están incrustadas en el ejecutable. Sin embargo, se puede acceder a ellas con el siguiente comando:
 
 ```
 pandoc -D *FORMATO*
-```
-
-- **Mac**: Si se ha instalado con Homebrew, las plantillas están en:
-
-```
-/usr/local/Cellar/pandoc/1.19.2.1/share/x86_64-osx-ghc-8.0.2/pandoc-1.19.2.1/data/templates
 ```
 
 ## Plantillas del usuario
